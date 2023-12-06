@@ -5,6 +5,7 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,8 +36,9 @@ public class GameManager : MonoBehaviour
             int random = generator.Next(0, 100);
             Chest chest = Instantiate(ChestPrefab, Grid.transform);
             chest._number = i;
-            chest._nomChest.text = (chest._number+1).ToString();
             chest._item = ((char)(i+65)).ToString();
+            chest._nomChest.text = chest._item;
+
             _dictChest.Add(chest._item, chest);
             if(random < _lockRate)
             {

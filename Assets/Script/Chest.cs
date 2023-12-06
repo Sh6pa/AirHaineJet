@@ -19,19 +19,21 @@ public class Chest : MonoBehaviour
 
     public void Start()
     {
-        _textChest.text = "";
+        _textChest.text = _itemToUnlock;
     }
     public void TryOpenChest()
     {
         if (GameManager._instance._listOwnItem.Contains(_itemToUnlock) || _isLock == false)
         {
             _animator.Play("OpeningChest");
-            _textChest.text = "Prend l'item " + _item.ToString();
+            _textChest.color = Color.green;
+            //_textChest.text = "Prend l'item " + _item.ToString();
             _isOpen = true;
         }
         else
         {
-            _textChest.text = "Item " + _itemToUnlock + " Manquant";
+            //_textChest.text = "Item " + _itemToUnlock + " Manquant";
+            _textChest.text = _itemToUnlock ;
         }
     }
     public void InteractChest()
