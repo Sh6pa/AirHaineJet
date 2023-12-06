@@ -8,13 +8,17 @@ public class GameManager : MonoBehaviour
     public static GameManager _instance;
     [SerializeField] public Chest ChestPrefab;
     [SerializeField] public GameObject Grid;
-    [SerializeField] public List<string> _listOwnItem;
-    [SerializeField] public Dictionary<string, Chest> _dictChest;
+    [SerializeField] public List<string> _listOwnItem = new List<string>();
+    [SerializeField] public Dictionary<string, Chest> _dictChest = new Dictionary<string, Chest>();
     [SerializeField] public int _chestQuantity;
     [SerializeField] public bool _useRandomSeed;
     [SerializeField] public string _seed;
     [SerializeField, Range(0,100)] public int _lockRate;
 
+    private void Awake()
+    {
+        _instance = this;
+    }
     public void SpawnChest()
     {
         _dictChest.Clear();

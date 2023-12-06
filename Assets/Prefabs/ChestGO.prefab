@@ -101,7 +101,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -189,7 +189,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _number: 0
-  _name: 
+  _item: 
+  _isOpen: 0
+  _isLock: 0
+  _itemToUnlock: 
+  _isItemTaken: 0
+  _textChest: {fileID: 2384301117392987433}
+  _animator: {fileID: 1888174254722392436}
 --- !u!222 &3976312306600802082
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -341,7 +347,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6690661394901076818}
         m_TargetAssemblyTypeName: Chest, Assembly-CSharp
-        m_MethodName: OpenChest
+        m_MethodName: TryOpenChest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

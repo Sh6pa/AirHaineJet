@@ -238,8 +238,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChestPrefab: {fileID: 6690661394901076818, guid: 0e6520042f058af46a8889c91f08f01e, type: 3}
   Grid: {fileID: 1430464663}
-  listItem: []
+  _listOwnItem: []
   _chestQuantity: 10
+  _useRandomSeed: 1
+  _seed: 
+  _lockRate: 50
 --- !u!4 &369441865
 Transform:
   m_ObjectHideFlags: 0

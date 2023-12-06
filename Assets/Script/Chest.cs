@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
@@ -12,13 +13,20 @@ public class Chest : MonoBehaviour
     [SerializeField] public bool _isLock;
     [SerializeField] public string _itemToUnlock;
     [SerializeField] public bool _isItemTaken;
+    [SerializeField] public TextMeshProUGUI _textChest;
+    [SerializeField] public Animator _animator;
 
-
+    public void Start()
+    {
+        _textChest.text = " ";
+    }
     public void TryOpenChest()
     {
-        if (GameManager._instance._listOwnItem.Contains(_itemToUnlock))
+        if (GameManager._instance._listOwnItem.Contains(_itemToUnlock) || _isLock == false)
         {
             Debug.Log("chest ouvert");
+            _animator.Play("OpeningChest");
+            _textChest.text = _item.ToString();
             _isOpen = true;
         }
         else
