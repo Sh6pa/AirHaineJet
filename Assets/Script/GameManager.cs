@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
             int random = generator.Next(0, 100);
             Chest chest = Instantiate(ChestPrefab, Grid.transform);
             chest._number = i;
-            chest._item = ((char)i+65).ToString();
+            chest._item = ((char)(i+65)).ToString();
             _dictChest.Add(chest._item, chest);
             if(random < _lockRate)
             {
