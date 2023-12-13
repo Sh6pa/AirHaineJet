@@ -50,14 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc77111a75e86d4d95423125b4dab31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _number: 0
-  _item: 
-  _isOpen: 0
-  _isLock: 0
-  _itemToUnlock: 
-  _isItemTaken: 0
-  _textChest: {fileID: 2619762860687724686}
-  _nomChest: {fileID: 3814453771694110138}
+  _itemToUnlockText: {fileID: 2619762860687724686}
+  _itemText: {fileID: 3814453771694110138}
   _animator: {fileID: 7823026770726093508}
 --- !u!1 &4822229752395651353
 GameObject:
@@ -227,7 +221,7 @@ GameObject:
   - component: {fileID: 9216820305116907201}
   - component: {fileID: 3814453771694110138}
   m_Layer: 0
-  m_Name: NomCoffre
+  m_Name: ItemText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -362,7 +356,7 @@ GameObject:
   - component: {fileID: 8733607195768080488}
   - component: {fileID: 2619762860687724686}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: ItemToUnlockText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

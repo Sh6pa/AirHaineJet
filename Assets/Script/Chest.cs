@@ -7,33 +7,62 @@ using static UnityEditor.Progress;
 
 public class Chest : MonoBehaviour
 {
-    [SerializeField] public int _number;
-    [SerializeField] public string _item;
-    [SerializeField] public bool _isOpen;
-    [SerializeField] public bool _isLock;
-    [SerializeField] public string _itemToUnlock;
-    [SerializeField] public bool _isItemTaken;
-    [SerializeField] public TextMeshProUGUI _textChest;
-    [SerializeField] public TextMeshProUGUI _nomChest;
-    [SerializeField] public Animator _animator;
+    [SerializeField] private TextMeshProUGUI _itemToUnlockText;
+    [SerializeField] private TextMeshProUGUI _itemText;
+    [SerializeField] private Animator _animator;
 
-    public void Start()
+
+    private int _number;
+    public int Number { get { return _number; } }
+    private string _item;
+    public string Item { get { return _item; } }
+    private bool _isLock;
+    public bool IsChestLock { get { return _isLock; } }
+    private string _itemToUnlock;
+    public string ItemToUnlock { get { return _itemToUnlock; } }
+    private bool _isOpen;
+    private bool _isItemTaken;
+    
+    public void SetNumber(int number)
     {
-        _textChest.text = _itemToUnlock;
+        _number = number;
     }
+
+    public void SetItem(string item)
+    {
+        _item = item;
+        _itemText.text = _item;
+    }
+
+    public void NeedsItemToUnlock(bool bNeedsIt)
+    {
+        _isLock = bNeedsIt;
+        _itemToUnlockText.color = bNeedsIt ? Color.red : Color.green;
+        if (!bNeedsIt)
+        {
+            SetItemToUnlock(" ");// string.Empty
+        }
+    }
+
+    public void SetItemToUnlock(string item)
+    {
+        _itemToUnlock = item;
+        _itemToUnlockText.text = _itemToUnlock;
+    }
+
     public void TryOpenChest()
     {
         if (GameManager._instance._listOwnItem.Contains(_itemToUnlock) || _isLock == false)
         {
             _animator.Play("OpeningChest");
-            _textChest.color = Color.green;
-            //_textChest.text = "Prend l'item " + _item.ToString();
+            _itemToUnlockText.color = Color.green;
+            // _textChest.text = "Prend l'item " + _item.ToString();
             _isOpen = true;
         }
         else
         {
-            //_textChest.text = "Item " + _itemToUnlock + " Manquant";
-            _textChest.text = _itemToUnlock ;
+            // _textChest.text = "Item " + _itemToUnlock + " Manquant";
+            _itemToUnlockText.text = _itemToUnlock ;
         }
     }
     public void InteractChest()

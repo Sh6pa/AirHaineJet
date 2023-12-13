@@ -371,16 +371,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2fa0034cdb859d4e89e901bedc9e6f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChestPrefab: {fileID: 6690661394901076818, guid: 0e6520042f058af46a8889c91f08f01e, type: 3}
+  ChestPrefab: {fileID: 344750354428238237, guid: 0e6520042f058af46a8889c91f08f01e, type: 3}
   Grid: {fileID: 1430464663}
   _listOwnItem: []
   _ownItem: {fileID: 417226077}
   _chestQuantityText: {fileID: 1032228992}
   _chestQuantity: 10
-  _useRandomSeed: 1
-  _seed: 
+  _useRandomSeed: 0
+  _seed: 150
   _grid: {fileID: 1430464666}
-  _lockRate: 50
+  _lockRate: 100
+  _chainRate: 90
 --- !u!4 &369441865
 Transform:
   m_ObjectHideFlags: 0
