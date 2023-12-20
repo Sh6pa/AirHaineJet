@@ -21,6 +21,8 @@ public class Chest : MonoBehaviour
     private string _itemToUnlock;
     public string ItemToUnlock { get { return _itemToUnlock; } }
     private bool _isOpen;
+    public bool IsChestOpen { get { return _isOpen; } }
+
     private bool _isItemTaken;
     
     public void SetNumber(int number)
@@ -52,7 +54,7 @@ public class Chest : MonoBehaviour
 
     public void TryOpenChest()
     {
-        if (GameManager._instance._listOwnItem.Contains(_itemToUnlock) || _isLock == false)
+        if (GameManager.Instance.m_listOwnItem.Contains(_itemToUnlock) || _isLock == false)
         {
             _animator.Play("OpeningChest");
             _itemToUnlockText.color = Color.green;
@@ -79,8 +81,8 @@ public class Chest : MonoBehaviour
     public void TakeItem()
     {
         _isItemTaken = true;
-        GameManager._instance._listOwnItem.Add(_item);
-        GameManager._instance.RefreshListOwnItem();
+        GameManager.Instance.m_listOwnItem.Add(_item);
+        GameManager.Instance.RefreshListOwnItem();
         _animator.Play("EmptyChest");
         Debug.Log("Item " + _item + " est récuperer");
     }
