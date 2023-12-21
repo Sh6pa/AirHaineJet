@@ -21,11 +21,12 @@ public class GameManager : MonoBehaviour
     /// </summary>
     [Range(0, 100)] public int m_chainRate;
 
+
     #region Private Serializable
     [SerializeField] private Chest _chestPrefab;
     [SerializeField] private GameObject _gridGO;
     [SerializeField] private TextMeshProUGUI _solutionText;
-    [SerializeField] private TextMeshProUGUI _seedText;
+    [SerializeField] private TMP_InputField _seedText;
     [SerializeField] private TextMeshProUGUI _ownItem;
     [SerializeField] private TextMeshProUGUI _chestQuantityText;
     [SerializeField] public int _chestQuantity;
@@ -33,6 +34,26 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Public Methods
+
+    #region Setters
+    public void SetSeed(string newSeed)
+    {
+        m_seed = newSeed;
+    }
+    public void SetIfUsingRandomSeed(bool isUsingRandomSeed)
+    {
+        m_useRandomSeed = isUsingRandomSeed;
+    }
+    public void SetLockRate(Single newLockRate)
+    {
+        m_lockRate = (int)newLockRate;
+    }
+    public void SetChainRate(Single newChainRate)
+    {
+        m_chainRate = (int)newChainRate;
+    }
+    #endregion
+
     public void RegenerateChest()
     {
         foreach(var chest in _dictChest) {
@@ -55,12 +76,12 @@ public class GameManager : MonoBehaviour
         string Solution = GetAllChains();
 
         _solutionText.text = "Items order : " + Solution;
-        _seedText.text = "Seed : " + m_seed;
+        _seedText.text = m_seed;
     }
     #region Increase Deacrease
     public void IncreaseChestNumber()
     {
-        if (_chestQuantity >= 30)
+        if (_chestQuantity >= 18)
         {
             return;
         }
@@ -218,7 +239,16 @@ public class GameManager : MonoBehaviour
             Solution += chest.Item;
         }
         Solution = GetAllChainsWithStartingChests(Solution);
+        List<string> chains = new List<string>();
+        string LastTracker = string.Empty;
+        for (int i = 0; i < Solution.Length; i++)
+        {
+            string chest = Solution[i].ToString();
+            if (true)
+            {
 
+            }
+        }
         return Solution;
     }
     #endregion
